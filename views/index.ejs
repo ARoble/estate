@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zxx">
+	
+<!-- Mirrored from themezhub.net/resido-live/resido/home-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 13 Mar 2021 15:37:41 GMT -->
+<head>
+		<meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		
+        <title>Resido - Residence & Real Estate HTML Template</title>	
+		
+        <!-- Custom CSS -->
+        <link href="/public/css/styles.css" rel="stylesheet">
+		
+		<!-- Custom Color Option -->
+		<link href="/public/css/colors.css" rel="stylesheet">
+		
+    </head>
+	
+    <body class="blue-skin">
+	
+		 <!-- ============================================================== -->
+        <!-- Preloader - style you can find in spinners.css -->
+        <!-- ============================================================== -->
+        <div id="preloader"><div class="preloader"><span></span><span></span></div></div>
+		
+        <!-- ============================================================== -->
+        <!-- Main wrapper - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <div id="main-wrapper">
+		
+            <!-- ============================================================== -->
+            <!-- Top header  -->
+            <!-- ============================================================== -->
+			<%- include('partials/header') %>
+			<div class="clearfix"></div>
+			<!-- ============================================================== -->
+			<!-- Top header  -->
+			<!-- ============================================================== -->
+			
+			
+			<!-- ============================ Hero Banner  Start================================== -->
+			<div class="image-bottom hero-banner" style="background:#2540a2 url(public/img/banner.svg) no-repeat;" data-overlay="0">
+				<div class="container">
+					<div class="row justify-content-center">
+						<div class="col-lg-9 col-md-11 col-sm-12">
+							<div class="inner-banner-text text-center">
+								<h2><span class="font-normal">Find Your</span> Perfect Place.</h2>
+							</div>
+							<form action="/list" method= GET>
+							<div class="full-search-2 eclip-search italian-search hero-search-radius shadow-hard mt-5">
+								<div class="hero-search-content">
+									<div class="row">
+									
+										<div class="col-lg-4 col-md-4 col-sm-12 b-r">
+											<div class="form-group">
+												<div class="choose-propert-type">
+													<ul>
+														<li>
+															<input id="cp-1" class="checkbox-custom" name="status" type="radio" value="sale">
+															<label for="cp-1" class="checkbox-custom-label" >Sale</label>
+														</li>
+														<li>
+															<input id="cp-2" class="checkbox-custom" name="status" type="radio"value="rent"checked>
+															<label for="cp-2" class="checkbox-custom-label" >Rent</label>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+										
+										<div class="col-lg-6 col-md-5 col-sm-12 p-0 elio">
+											<div class="form-group">
+												<div class="input-with-icon">
+													<input type="text" class="form-control" placeholder="Search for a location" name="location">
+													<img src="public/img/pin.svg" width="20"></i>
+												</div>
+											</div>
+										</div>
+										
+										<div class="col-lg-2 col-md-3 col-sm-12">
+											<div class="form-group">
+												<button class="btn search-btn black" type="submit">Search</button>
+											</div>
+										</div>
+									
+									</div>
+								</div>
+							</div>
+						</form>	
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- ============================ Hero Banner End ================================== -->
+			
+		
+			
+			<!-- ============================ Latest Property For Sale Start ================================== -->
+		
+			<section class="pt-5">
+				<div class="container">
+				
+					<div class="row justify-content-center">
+						<div class="col-lg-7 col-md-10 text-center">
+							<div class="sec-heading center mb-4">
+								<h2>Recent Property For Rent</h2>
+								</div>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-lg-12 col-md-12">
+							<div class="property-slide">
+								<% for(var i=0; i < properties.length; i++) { %>
+									
+							<% if(properties[i].status === 'rent'){ %>
+
+							
+								<!-- Single Property -->
+								<div class="single-items">
+									<div class="property-listing shadow-none property-2 border">
+								
+										<div class="listing-img-wrapper">
+											<div class="list-img-slide">
+												<div class="click">
+													<div><a href="property/<%= properties[i].slug %>"><img src="<%= properties[i].imageCover%>" class="img-fluid mx-auto" alt="" /></a></div>
+														</div>
+											</div>
+										</div>
+										<style>.prt-link-detail::before{display:none}</style>
+
+										<div class="listing-detail-wrapper">
+											<div class="listing-short-detail-wrap">
+												<div class="listing-short-detail">
+													<span class="property-type">For <%= properties[i].status %></span>
+													<h4 class="listing-name verified"><a href="property/<%= properties[i].slug %>" class="prt-link-detail"><%= properties[i].title %></a></h4>
+												</div>
+												<div class="listing-short-detail-flex">
+													<h6 class="listing-card-info-price">$<%= properties[i].price %>/<small>month</small></h6>
+												</div>
+											</div>
+										</div>
+										
+										<div class="price-features-wrapper">
+											<div class="list-fx-features">
+												<% if (properties[i].propertyType === 'House') { %>
+												<div class="listing-card-info-icon">
+													<div class="inc-fleat-icon"><img src="public/img/bed.svg" width="13" alt="" /></div><%= properties[i].bedrooms%> Beds
+												</div>
+												<div class="listing-card-info-icon">
+													<div class="inc-fleat-icon"><img src="public/img/bathtub.svg" width="13" alt="" /></div><%= properties[i].bathrooms%> Bath
+												</div>
+												<% } %>
+												<div class="listing-card-info-icon">
+													<div class="inc-fleat-icon"><img src="public/img/move.svg" width="13" alt="" /></div><%= properties[i].area %>
+												</div>
+											</div>
+										</div>
+										
+										<div class="listing-detail-footer">
+											<div class="footer-first">
+												<div class="foot-location"><img src="public/img/pin.svg" width="18" alt="" /><%= properties[i].address %></div>
+											</div>
+											<div class="footer-flex">
+												<a href="property/<%= properties[i].slug %>" class="prt-view">View</a>
+											</div>
+										</div>
+										
+									</div>
+								</div>
+								<% }} %>
+								
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			</section>
+			<!-- ============================ Latest Property For Sale End ================================== -->
+			
+			<!-- ============================ All Property ================================== -->
+			<section class="bg-light">
+				<div class="container">
+				
+					<div class="row justify-content-center">
+						<div class="col-lg-7 col-md-10 text-center">
+							<div class="sec-heading center">
+								<h2>Featured Property For Sale</h2>
+								</div>
+						</div>
+					</div>
+				
+					<div class="row list-layout">
+						<% for(var i=0; i < properties.length; i++) { %>
+							<% if(properties[i].status === 'sale'){ %>
+						<!-- Single Property Start -->
+						<div class="col-lg-6 col-md-12">
+							<div class="property-listing property-1">
+									
+								<div class="listing-img-wrapper">
+									<a href="property/<%= properties[i].slug %>">
+										<img src="<%= properties[i].imageCover %>" class="img-fluid mx-auto" alt="" />
+									</a>
+								</div>
+								
+								<div class="listing-content">
+								
+									<div class="listing-detail-wrapper-box">
+										<div class="listing-detail-wrapper">
+											<div class="listing-short-detail">
+												<h4 class="listing-name"><a href="property/<%= properties[i].slug %>"><%= properties[i].title %></a></h4>
+												<div class="fr-can-rating">
+													
+													<span class="reviews_text"><%= properties[i].city %></span>
+												</div>
+												<span class="prt-types sale">For <%= properties[i].status %></span>
+											</div>
+											<div class="list-price">
+												<h6 class="listing-card-info-price">$<%= properties[i].price %></h6>
+											</div>
+										</div>
+									</div>
+									
+									<div class="price-features-wrapper">
+										<div class="list-fx-features">
+											<% if(properties[i].propertyType ==='House'){ %>
+											<div class="listing-card-info-icon">
+												<div class="inc-fleat-icon"><img src="/public/img/bed.svg" width="13" alt="" /></div>3 Beds
+											</div>
+											<div class="listing-card-info-icon">
+												<div class="inc-fleat-icon"><img src="/public/img/bathtub.svg" width="13" alt="" /></div>1 Bath
+											</div>
+											<% } %>
+											<div class="listing-card-info-icon">
+												<div class="inc-fleat-icon"><img src="/public/img/move.svg" width="13" alt="" /></div><%= properties[i].area %>
+											</div>
+										</div>
+									</div>
+								
+									<div class="listing-footer-wrapper">
+										<div class="listing-locate">
+											<span class="listing-location"><i class="ti-location-pin"></i><%= properties[i].address %></span>
+										</div>
+										<div class="listing-detail-btn">
+											<a href="property/<%= properties[i].slug %>" class="more-btn">View</a>
+										</div>
+									</div>
+									
+								</div>
+								
+							</div>
+						</div>
+						<!-- Single Property End -->
+						<% }} %>
+					
+						
+					</div>
+							
+					<!-- Pagination -->
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 text-center">
+							<a href="/list" class="btn btn-theme-light rounded">Browse More Properties</a>
+						</div>
+					</div>
+					
+				</div>		
+			</section>
+			<!-- ============================ All Featured Property ================================== -->
+			
+		
+			<!-- ========================== Download App Section =============================== -->						
+			
+			<!-- ============================ Call To Action ================================== -->
+		
+			<!-- ============================ Call To Action End ================================== -->
+			
+			<!-- ============================ Footer Start ================================== -->
+		<%- include('partials/footer') %>
+			<!-- ============================ Footer End ================================== -->
+			
+		
+			<a id="back2Top" class="top-scroll" title="Back to top" href="#"><i class="ti-arrow-up"></i></a>
+			
+
+		</div>
+		<!-- ============================================================== -->
+		<!-- End Wrapper -->
+		<!-- ============================================================== -->
+
+		<!-- ============================================================== -->
+		<!-- All Jquery -->
+		<!-- ============================================================== -->
+		<script src="/public/js/jquery.min.js"></script>
+		<script src="/public/js/popper.min.js"></script>
+		<script src="/public/js/bootstrap.min.js"></script>
+		<script src="/public/js/rangeslider.js"></script>
+		<script src="/public/js/select2.min.js"></script>
+		<script src="/public/js/jquery.magnific-popup.min.js"></script>
+		<script src="/public/js/slick.js"></script>
+		<script src="/public/js/slider-bg.js"></script>
+		<script src="/public/js/lightbox.js"></script> 
+		<script src="/public/js/imagesloaded.js"></script>
+		 
+		<script src="/public/js/custom.js"></script>
+		<!-- ============================================================== -->
+		<!-- This page plugins -->
+		<!-- ============================================================== -->
+
+	</body>
+
+<!-- Mirrored from themezhub.net/resido-live/resido/home-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 13 Mar 2021 15:38:10 GMT -->
+</html>

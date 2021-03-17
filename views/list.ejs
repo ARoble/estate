@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <!-- Mirrored from themezhub.net/resido-live/resido/list-layout-with-sidebar.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 13 Mar 2021 15:38:22 GMT -->
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+
+    <title>Resido - Residence & Real Estate HTML Template</title>
+
+    <!-- Custom CSS -->
+    <link href="/public/css/styles.css" rel="stylesheet" />
+
+    <!-- Custom Color Option -->
+    <link href="/public/css/colors.css" rel="stylesheet" />
+  </head>
+
+  <body class="blue-skin">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div id="preloader">
+      <div class="preloader"><span></span><span></span></div>
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+      <!-- ============================================================== -->
+      <!-- Top header  -->
+      <!-- ============================================================== -->
+      <!-- Start Navigation -->
+      <%- include('partials/header') %>
+      <!-- End Navigation -->
+      <div class="clearfix"></div>
+      <!-- ============================================================== -->
+      <!-- Top header  -->
+      <!-- ============================================================== -->
+
+      <!-- ============================ Page Title Start================================== -->
+      <div class="page-title">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <h2 class="ipt-title">Property List</h2>
+              <span class="ipn-subtitle">Find your next property</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ============================ Page Title End ================================== -->
+
+      <!-- ============================ All Property ================================== -->
+      <section class="gray">
+        <div class="container">
+          <div class="row">
+            <!-- property Sidebar -->
+            <div class="col-lg-4 col-md-4 col-sm-12">
+              <div
+                class="simple-sidebar sm-sidebar"
+                id="filter_search"
+                style="left: 0"
+              >
+                <div class="search-sidebar_header">
+                  <h4 class="ssh_heading">Close Filter</h4>
+                  <button
+                    onclick="closeFilterSearch()"
+                    class="w3-bar-item w3-button w3-large"
+                  >
+                    <i class="ti-close"></i>
+                  </button>
+                </div>
+
+                <!-- Find New Property -->
+                <div class="sidebar-widgets">
+                  <form action="" method="get">
+                    <div class="search-inner p-0">
+                      <div class="filter-search-box">
+                        <div class="form-group">
+                          <div class="input-with-icon">
+                            <select
+                              id="status"
+                              class="form-control"
+                              name="sort"
+                            >
+                              <option value="">Latest</option>
+                              <option value="price">Low Price</option>
+                              <option value="-price">High Price</option>
+                            </select>
+                            <i class="ti-filter"></i>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <div class="input-with-icon">
+                            <select
+                              id="status"
+                              class="form-control"
+                              name="status"
+                            >
+                              <option value="">All</option>
+                              <option value="rent">For Rent</option>
+                              <option value="sale">For Sale</option>
+                            </select>
+                            <i class="ti-home"></i>
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <div class="input-with-icon">
+                            <select
+                              id="ptypes"
+                              class="form-control"
+                              name="city"
+                            >
+                              <option value="">&nbsp;</option>
+                              <option value="Hargeisa">Hargeisa</option>
+                              <option value="Burco">Burco</option>
+                              <option value="Berbera">Berbera</option>
+                              <option value="Laas Anood">Laas Anood</option>
+                              <option value="Ceerigaabo">Ceerigaabo</option>
+                              <option value="Bosaaso">Bosaaso</option>
+                            </select>
+                            <i class="ti-location-pin"></i>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="filter_wraps">
+                        <!-- Single Search -->
+
+                        <!-- Single Search -->
+                        <div class="single_search_boxed">
+                          <div class="widget-boxed-header">
+                            <h4>
+                              <a
+                                href="#fptype"
+                                data-bs-toggle="collapse"
+                                aria-expanded="false"
+                                role="button"
+                                class="collapsed"
+                                >Property Types<span class="selected"
+                                  >All Property Types</span
+                                ></a
+                              >
+                            </h4>
+                          </div>
+                          <div
+                            class="widget-boxed-body collapse"
+                            id="fptype"
+                            data-parent="#fptype"
+                          >
+                            <div class="side-list no-border">
+                              <!-- Single Filter Card -->
+                              <div class="single_filter_card">
+                                <div class="card-body pt-0">
+                                  <div class="inner_widget_link">
+                                    <ul class="no-ul-list filter-list">
+                                      <li>
+                                        <input
+                                          id="c1"
+                                          class="radio-custom"
+                                          name="propertyType"
+                                          type="radio"
+                                          value="House"
+                                        />
+                                        <label
+                                          for="c1"
+                                          class="radio-custom-label"
+                                          >House</label
+                                        >
+                                      </li>
+                                      <li>
+                                        <input
+                                          id="c2"
+                                          class="radio-custom"
+                                          name="propertyType"
+                                          type="radio"
+                                          value="Office"
+                                        />
+                                        <label
+                                          for="c2"
+                                          class="radio-custom-label"
+                                          >Office</label
+                                        >
+                                      </li>
+                                      <li>
+                                        <input
+                                          id="c3"
+                                          class="radio-custom"
+                                          name="propertyType"
+                                          type="radio"
+                                          value="Land"
+                                        />
+                                        <label
+                                          for="c3"
+                                          class="radio-custom-label"
+                                          >Land</label
+                                        >
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Single Search -->
+                        <!-- 
+                        <div class="single_search_boxed">
+                          <div class="widget-boxed-header">
+                            <h4>
+                              <a
+                                href="#fbedrooms"
+                                data-bs-toggle="collapse"
+                                aria-expanded="false"
+                                role="button"
+                                class="collapsed"
+                                >Bedrooms<span class="selected">2 Beds</span></a
+                              >
+                            </h4>
+                          </div>
+                          <div
+                            class="widget-boxed-body collapse"
+                            id="fbedrooms"
+                            data-parent="#fbedrooms"
+                          >
+                            <div class="side-list no-border"> -->
+                        <!-- Single Filter Card -->
+                        <!-- <div class="single_filter_card">
+                                <div class="card-body pt-0">
+                                  <div class="inner_widget_link">
+                                    <ul class="no-ul-list filter-list">
+                                      <li>
+                                        <input
+                                          id="a1"
+                                          class="radio-custom"
+                                          name="bed"
+                                          type="radio"
+                                        />
+                                        <label
+                                          for="a1"
+                                          class="radio-custom-label"
+                                          >01 Bedrooms</label
+                                        >
+                                      </li>
+                                      <li>
+                                        <input
+                                          id="a2"
+                                          class="radio-custom"
+                                          name="bed"
+                                          type="radio"
+                                        />
+                                        <label
+                                          for="a2"
+                                          class="radio-custom-label"
+                                          >02 Bedrooms</label
+                                        >
+                                      </li>
+                                      <li>
+                                        <input
+                                          id="a3"
+                                          class="radio-custom"
+                                          name="bed"
+                                          type="radio"
+                                        />
+                                        <label
+                                          for="a3"
+                                          class="radio-custom-label"
+                                          >03 Bedrooms</label
+                                        >
+                                      </li>
+                                      <li>
+                                        <input
+                                          id="a4"
+                                          class="radio-custom"
+                                          name="bed"
+                                          type="radio"
+                                          checked
+                                        />
+                                        <label
+                                          for="a4"
+                                          class="radio-custom-label"
+                                          >04 Bedrooms</label
+                                        >
+                                      </li>
+                                      <li>
+                                        <input
+                                          id="a5"
+                                          class="radio-custom"
+                                          name="bed"
+                                          type="radio"
+                                        />
+                                        <label
+                                          for="a5"
+                                          class="radio-custom-label"
+                                          >05 Bedrooms</label
+                                        >
+                                      </li>
+                                      <li>
+                                        <input
+                                          id="a6"
+                                          class="radio-custom"
+                                          name="bed"
+                                          type="radio"
+                                        />
+                                        <label
+                                          for="a6"
+                                          class="radio-custom-label"
+                                          >06+ Bedrooms</label
+                                        >
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div> -->
+
+                        <!-- Single Search -->
+                        <!-- <div class="single_search_boxed">
+                          <div class="widget-boxed-header">
+                            <h4>
+                              <a
+                                href="#fprice"
+                                data-bs-toggle="collapse"
+                                aria-expanded="false"
+                                role="button"
+                                class="collapsed"
+                                >Price Range<span class="selected"
+                                  >$10,000 - $15,000</span
+                                ></a
+                              >
+                            </h4>
+                          </div>
+                          <div
+                            class="widget-boxed-body collapse"
+                            id="fprice"
+                            data-parent="#fprice"
+                          >
+                            <div class="side-list no-border"> -->
+                        <!-- Single Filter Card -->
+                        <!-- <div class="single_filter_card">
+                                <div class="card-body pt-0">
+                                  <div class="inner_widget_link">
+                                    <ul class="no-ul-list filter-list">
+                                      <li>
+                                        <input
+                                          id="e1"
+                                          class="radio-custom"
+                                          name="prices"
+                                          type="radio"
+                                        />
+                                        <label
+                                          for="e1"
+                                          class="radio-custom-label"
+                                          >Less Then $10,000</label
+                                        >
+                                      </li>
+                                      <li>
+                                        <input
+                                          id="e2"
+                                          class="radio-custom"
+                                          name="prices"
+                                          type="radio"
+                                        />
+                                        <label
+                                          for="e2"
+                                          class="radio-custom-label"
+                                          >$10,000 - $15,000</label
+                                        >
+                                      </li>
+                                      <li>
+                                        <input
+                                          id="e3"
+                                          class="radio-custom"
+                                          name="prices"
+                                          type="radio"
+                                        />
+                                        <label
+                                          for="e3"
+                                          class="radio-custom-label"
+                                          >$12,000 - $25,000</label
+                                        >
+                                      </li>
+                                      <li>
+                                        <input
+                                          id="e4"
+                                          class="radio-custom"
+                                          name="prices"
+                                          type="radio"
+                                          checked
+                                        />
+                                        <label
+                                          for="e4"
+                                          class="radio-custom-label"
+                                          >$30,000 - $35,000</label
+                                        >
+                                      </li>
+                                      <li>
+                                        <input
+                                          id="e5"
+                                          class="radio-custom"
+                                          name="prices"
+                                          type="radio"
+                                        />
+                                        <label
+                                          for="e5"
+                                          class="radio-custom-label"
+                                          >$40,000 - $45,000</label
+                                        >
+                                      </li>
+                                      <li>
+                                        <input
+                                          id="e6"
+                                          class="radio-custom"
+                                          name="prices"
+                                          type="radio"
+                                        />
+                                        <label
+                                          for="e6"
+                                          class="radio-custom-label"
+                                          >$50,000 - $55,000</label
+                                        >
+                                      </li>
+                                      <li>
+                                        <input
+                                          id="e7"
+                                          class="radio-custom"
+                                          name="prices"
+                                          type="radio"
+                                        />
+                                        <label
+                                          for="e7"
+                                          class="radio-custom-label"
+                                          >$60,000 - $65,000</label
+                                        >
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div> -->
+                      </div>
+
+                      <div class="form-group filter_button">
+                        <button
+                          type="submit"
+                          class="btn btn btn-theme-light-2 rounded full-width"
+                        >
+                          Submit
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <!-- Sidebar End -->
+            </div>
+
+            <div class="col-lg-8 col-md-12 list-layout">
+              <div class="row justify-content-center">
+                <div class="col-lg-12 col-md-12">
+                  <div class="item-shorting-box">
+                    <div class="item-shorting clearfix">
+                      <div class="left-column pull-left">
+                        <h4 class="m-0">
+                          Found <%= properties.length%> Results
+                        </h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <% for(i=0; i < properties.length; i++ ){%>
+                <!-- Single Property Start -->
+                <div class="col-lg-12 col-md-12">
+                  <div class="property-listing property-1">
+                    <div class="listing-img-wrapper">
+                      <a href="property/<%= properties[i].slug %>">
+                        <img
+                          src="<%= properties[i].imageCover %>"
+                          class="img-fluid mx-auto"
+                          alt=""
+                        />
+                      </a>
+                    </div>
+
+                    <div class="listing-content">
+                      <div class="listing-detail-wrapper-box">
+                        <div class="listing-detail-wrapper">
+                          <div class="listing-short-detail">
+                            <h4 class="listing-name">
+                              <a href="property/<%= properties[i].slug %>"
+                                ><%= properties[i].title %></a
+                              >
+                            </h4>
+                            <div class="fr-can-rating"></div>
+                            <span class="prt-types <%= properties[i].status %>"
+                              >For <%= properties[i].status %></span
+                            >
+                          </div>
+                          <div class="list-price">
+                            <h6 class="listing-card-info-price">
+                              $<%= properties[i].price %><%
+                              if(properties[i].status === 'rent') { %>/<small
+                                >month</small
+                              >
+                              <% } %>
+                            </h6>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="price-features-wrapper">
+                        <div class="list-fx-features">
+                          <% if(properties[i].propertyType === 'House'){ %>
+                          <div class="listing-card-info-icon">
+                            <div class="inc-fleat-icon">
+                              <img
+                                src="/public/img/bed.svg"
+                                width="13"
+                                alt=""
+                              />
+                            </div>
+                            <%= properties[i].bedrooms %> Beds
+                          </div>
+                          <div class="listing-card-info-icon">
+                            <div class="inc-fleat-icon">
+                              <img
+                                src="/public/img/bathtub.svg"
+                                width="13"
+                                alt=""
+                              />
+                            </div>
+                            <%= properties[i].bathrooms %> Bath
+                          </div>
+                          <% } %>
+                          <div class="listing-card-info-icon">
+                            <div class="inc-fleat-icon">
+                              <img
+                                src="/public/img/move.svg"
+                                width="13"
+                                alt=""
+                              />
+                            </div>
+                            <%= properties[i].area %>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="listing-footer-wrapper">
+                        <div class="listing-locate">
+                          <span class="listing-location"
+                            ><i class="ti-location-pin"></i><%=
+                            properties[i].address %>, <%= properties[i].city
+                            %></span
+                          >
+                        </div>
+                        <div class="listing-detail-btn">
+                          <a
+                            href="property/<%= properties[i].slug %>"
+                            class="more-btn"
+                            >View</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Single Property End -->
+                <% }%>
+              </div>
+
+              <!-- Pagination -->
+              <!-- <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                  <ul class="pagination p-center">
+                    <li class="page-item">
+                      <a class="page-link" href="#" aria-label="Previous">
+                        <span class="ti-arrow-left"></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">1</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">2</a>
+                    </li>
+                    <li class="page-item active">
+                      <a class="page-link" href="#">3</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">...</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">18</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#" aria-label="Next">
+                        <span class="ti-arrow-right"></span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ============================ All Property ================================== -->
+
+      <!-- ============================ Footer Start ================================== -->
+      <%- include('partials/footer') %>
+      <!-- End Modal -->
+
+      <a id="back2Top" class="top-scroll" title="Back to top" href="#"
+        ><i class="ti-arrow-up"></i
+      ></a>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="/public/js/jquery.min.js"></script>
+    <script src="/public/js/popper.min.js"></script>
+    <script src="/public/js/bootstrap.min.js"></script>
+    <script src="/public/js/rangeslider.js"></script>
+    <script src="/public/js/select2.min.js"></script>
+    <script src="/public/js/jquery.magnific-popup.min.js"></script>
+    <script src="/public/js/slick.js"></script>
+    <script src="/public/js/slider-bg.js"></script>
+    <script src="/public/js/lightbox.js"></script>
+    <script src="/public/js/imagesloaded.js"></script>
+
+    <script src="/public/js/custom.js"></script>
+    <!-- ============================================================== -->
+    <!-- This page plugins -->
+    <!-- ============================================================== -->
+  </body>
+
+  <!-- Mirrored from themezhub.net/resido-live/resido/list-layout-with-sidebar.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 13 Mar 2021 15:38:22 GMT -->
+</html>
