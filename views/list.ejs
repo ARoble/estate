@@ -7,7 +7,7 @@
       content="width=device-width, initial-scale=1, maximum-scale=1"
     />
 
-    <title>DhulDhis Real Estate</title>
+    <title><%= title%></title>
 
     <!-- Custom CSS -->
     <link href="/public/css/styles.css" rel="stylesheet" />
@@ -470,7 +470,9 @@
                     <div class="item-shorting clearfix">
                       <div class="left-column pull-left">
                         <h4 class="m-0">
-                          Found <%= properties.length%> Results
+                          <% if(notFound === true){%> Couldn't find your search
+                          but check out these properties <% }else { %> Found <%=
+                          properties.length%> Results <% } %>
                         </h4>
                       </div>
                     </div>

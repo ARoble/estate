@@ -7,7 +7,7 @@
       content="width=device-width, initial-scale=1, maximum-scale=1"
     />
 
-    <title>DhulDhis Real Estate</title>
+    <title><%= title %></title>
 
     <!-- Custom CSS -->
     <link href="/public/css/styles.css" rel="stylesheet" />
@@ -128,12 +128,13 @@
                             style="
                               max-height: 145px;
                               min-height: 145px;
-                              width: 219px;
+                              width: auto;
                             "
                             src="/<%=
                               property.imageCover %>"
                             class="img-fluid mx-auto"
-                            alt=""
+                            alt="<%=
+                            property.title %> image"
                         /></a>
                       </li>
                       <% for(var i=0; i < property.images.length; i++) {%>
@@ -285,7 +286,7 @@
                   </div>
                 </div>
               </div> -->
-
+              <% if(property.droneFootage){ %>
               <!-- Single Block Wrap -->
               <div class="property_block_wrap style-2">
                 <div class="property_block_wrap_header">
@@ -305,38 +306,33 @@
 
                 <div id="clFour" class="panel-collapse collapse">
                   <div class="block-body">
-                    <div class="property_video">
-                      <div class="thumb">
-                        <img
-                          class="pro_img img-fluid w100"
-                          src="/public/img/pl-6.jpg"
-                          alt="7.jpg"
-                        />
-                        <div class="overlay_icon">
-                          <div class="bb-video-box">
-                            <div class="bb-video-box-inner">
-                              <div class="bb-video-box-innerup">
-                                <a
-                                  href="https://www.youtube.com/watch?v=A8EI6JaFbv4"
-                                  data-bs-toggle="modal"
-                                  data-bs-target="#popup-video"
-                                  class="theme-cl"
-                                  ><i class="ti-control-play"></i
-                                ></a>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                    <video
+                      style="
+                        display: block;
+                        margin-left: auto;
+                        margin-right: auto;
+                        width: 80%;
+                      "
+                      controls
+                    >
+                      <source
+                        src="/<%= property.droneFootage %>"
+                        type="video/mp4"
+                      />
+                      <source
+                        src="/<%= property.droneFootage %>"
+                        type="video/ogg"
+                      />
+                      Your browser does not support the video tag.
+                    </video>
                   </div>
                 </div>
               </div>
-
+              <% } %>
               <!-- Single Block Wrap -->
 
               <!-- Single Block Wrap -->
-              <div class="property_block_wrap style-2">
+              <!-- <div class="property_block_wrap style-2">
                 <div class="property_block_wrap_header">
                   <a
                     data-bs-toggle="collapse"
@@ -362,7 +358,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
 
               <!-- Single Block Wrap -->
               <!-- <div class="property_block_wrap style-2">
@@ -545,7 +541,7 @@
               <div class="details-sidebar">
                 <!-- Agent Detail -->
                 <div class="sides-widget">
-                  <div class="sides-widget-header">
+                  <!-- <div class="sides-widget-header">
                     <div class="agent-photo">
                       <img src="/public/img/avatar.png" alt="" />
                     </div>
@@ -557,21 +553,32 @@
                       >
                     </div>
                     <div class="clearfix"></div>
-                  </div>
+                  </div> -->
 
                   <div class="sides-widget-body simple-form">
-                    <div class="form-group">
-                      <label>Submit Bid.</label>
-                      <input
-                        type="Number"
-                        class="form-control"
-                        placeholder="Submit a bid if your interested"
-                      />
-                    </div>
-
-                    <button class="btn btn-black btn-md rounded full-width">
-                      Submit Bid
-                    </button>
+                    <form action="/bid/<%= property.slug %>" method="post">
+                      <div class="form-group">
+                        <label>Submit Bid.</label><br />
+                        <input
+                          type="Number"
+                          class="form-control"
+                          name="amount"
+                          placeholder="Submit a bid if your interested"
+                        />
+                      </div>
+                      <% if(logged) { %>
+                      <button class="btn btn-black btn-md rounded full-width">
+                        Submit Bid
+                      </button>
+                      <% }else { %>
+                      <button
+                        class="btn btn-black btn-md rounded full-width"
+                        disabled
+                      >
+                        Login to submit bid
+                      </button>
+                      <% }%>
+                    </form>
                   </div>
                 </div>
 

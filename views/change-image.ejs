@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+
+    <title><%= title %></title>
+
+    <!-- Custom CSS -->
+    <link href="/public/css/styles.css" rel="stylesheet" />
+
+    <!-- Custom Color Option -->
+    <link href="/public/css/colors.css" rel="stylesheet" />
+  </head>
+
+  <body class="blue-skin dashboard">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div id="preloader">
+      <div class="preloader"><span></span><span></span></div>
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+      <!-- ============================================================== -->
+      <!-- Top header  -->
+      <!-- ============================================================== -->
+      <!-- Start Navigation -->
+      <%- include('partials/header') %>
+      <!-- End Navigation -->
+      <div class="clearfix"></div>
+      <!-- ============================================================== -->
+      <!-- Top header  -->
+      <!-- ============================================================== -->
+
+      <!-- ============================ Page Title Start================================== -->
+      <div class="page-title">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <h2 class="ipt-title">Welcome!</h2>
+              <span class="ipn-subtitle">Welcome To Your Account</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ============================ Page Title End ================================== -->
+
+      <!-- ============================ User Dashboard ================================== -->
+      <section class="gray-simple">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <div class="filter_search_opt">
+                <a href="javascript:void(0);" onclick="openFilterSearch()"
+                  >Dashboard Navigation<i class="ml-2 ti-menu"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <%- include('partials/dashboard') %>
+
+            <div class="col-lg-9 col-md-12">
+              <div class="row">
+                <!-- Submit Form -->
+                <div class="col-lg-12 col-md-12">
+                  <form
+                    src="/property/edit/images/<%= property.slug%>"
+                    method="post"
+                    enctype="multipart/form-data"
+                  >
+                    <div class="submit-page">
+                      <!-- Basic Information -->
+                      <div class="form-submit">
+                        <div class="submit-section">
+                          <div class="row">
+                            <div class="form-group col-md-6">
+                              <h4>Image Cover</h4>
+                              <img
+                                id="image-cover"
+                                class="img-fluid"
+                                style="max-width: auto; height: 230px"
+                                src="/<%= property.imageCover %>"
+                                alt="some food thing"
+                                class="img-thumbnail"
+                                name="imageCover"
+                              />
+
+                              <input
+                                type="file"
+                                name="imageCover"
+                                id="file-cover"
+                                style="display: block"
+                                value="<%= property.imageCover %>"
+                                onchange="changedFile(event)"
+                              />
+                            </div>
+                            <div class="form-group col-md-6">
+                              <h4>Drone Footage</h4>
+                              <% if(property.droneFootage){ %>
+                              <video
+                                style="max-width: auto; height: 230px"
+                                controls
+                              >
+                                <source
+                                  id="drone-footage"
+                                  src="/<%= property.droneFootage %>"
+                                  type="video/mp4"
+                                />
+
+                                Your browser does not support the video tag.
+                              </video>
+                              <% }else{ %> No drone footage has been uploaded
+                              for this property <% } %>
+                              <input
+                                type="file"
+                                name="droneFootage"
+                                value="<%= property.droneFootage %>"
+                              />
+                            </div>
+                          </div>
+
+                          <!-- other images list-->
+                          <h4>Images</h4>
+                          <div class="row" id="manlike">
+                            <!-- <% for (var i=0; i < property.images.length; i++)
+                            {%>
+                            <div
+                              class="form-group col-md-12"
+                              style="display: inline-block"
+                              id="display-image-<%= i %>"
+                            >
+                              <img
+                                class="img-fluid"
+                                style="max-width: 200px; min-height: 150px"
+                                src="/<%= property.images[i] %>"
+                                alt="Property Image"
+                                class="img-thumbnail"
+                                id="image<%= i%>"
+                              /><br />
+                              <a
+                                style="cursor: pointer"
+                                onclick="removeImage('<%= i %>')"
+                              >
+                                Remove
+                              </a>
+                            </div>
+                            <% } %>
+                            <img
+                              class="img-fluid"
+                              style="max-width: 200px; min-height: 150px"
+                              src=""
+                              alt="Property Image"
+                              class="img-thumbnail"
+                              id="add-image"
+                            /> -->
+
+                            <input
+                              type="file"
+                              name="images"
+                              id="file-cover"
+                              style="display: block"
+                              multiple
+                            />
+                          </div>
+                          <!-- other images list-->
+                        </div>
+                      </div>
+
+                      <div
+                        class="form-group col-lg-12 col-md-12"
+                        style="margin-top: 23px"
+                      >
+                        <button
+                          class="btn btn-theme-light-2 rounded"
+                          type="submit"
+                        >
+                          Update
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ============================ User Dashboard End ================================== -->
+
+      <!-- ============================ Footer Start ================================== -->
+      <%- include('partials/footer') %>
+      <!-- End Modal -->
+
+      <a id="back2Top" class="top-scroll" title="Back to top" href="#"
+        ><i class="ti-arrow-up"></i
+      ></a>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="/public/js/jquery.min.js"></script>
+    <script src="/public/js/popper.min.js"></script>
+    <script src="/public/js/bootstrap.min.js"></script>
+    <script src="/public/js/rangeslider.js"></script>
+    <script src="/public/js/select2.min.js"></script>
+    <script src="/public/js/jquery.magnific-popup.min.js"></script>
+    <script src="/public/js/slick.js"></script>
+    <script src="/public/js/slider-bg.js"></script>
+    <script src="/public/js/lightbox.js"></script>
+    <script src="/public/js/imagesloaded.js"></script>
+
+    <script src="/public/js/custom.js"></script>
+    <script src="/public/js/script.js"></script>
+    <!-- ============================================================== -->
+    <!-- This page plugins -->
+    <!-- ============================================================== -->
+
+    <script src="/public/js/dropzone.js"></script>
+    <!-- New Js -->
+
+    <script>
+      function openFilterSearch() {
+        document.getElementById("filter_search").style.display = "block";
+      }
+      function closeFilterSearch() {
+        document.getElementById("filter_search").style.display = "none";
+      }
+    </script>
+  </body>
+</html>

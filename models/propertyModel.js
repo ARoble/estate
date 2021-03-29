@@ -5,6 +5,7 @@ const propertySchema = new mongoose.Schema({
   title: {
     type: String,
     required: [true, "A name for the propery is required"],
+    unique: true,
   },
   slug: String,
   status: {
@@ -45,6 +46,7 @@ const propertySchema = new mongoose.Schema({
   description: {
     type: String,
     required: [true, "A description must be provided"],
+    trim: true,
   },
   buildingAge: String,
   water: Boolean,
