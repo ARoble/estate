@@ -29,9 +29,13 @@ exports.uploadImage = upload.fields([
 exports.getProperty = async (req, res, next) => {
   try {
     const properties = await Properties.find({}).sort("-dateListed");
+
+    // const bid = await Bid.findById("60620f935c601669083453cd");
+    // console.log("bid" + bid.property.address);
+
     res.render("index", { properties, title: "Home | DhulDoon" });
-  } catch {
-    console.log("error!!");
+  } catch (err) {
+    console.log(err);
   }
 };
 
@@ -103,7 +107,7 @@ exports.listProperties = async (req, res) => {
     // .pagination();
 
     var properties = await features.query;
-    console.log(req.user);
+
     if (properties.length === 0) {
       properties = await Properties.find({}).sort("-dateListed");
       var notFound = true;
@@ -244,7 +248,7 @@ exports.editProfile = async (req, res) => {
 
 exports.profile = (req, res) => {
   try {
-    res.render("my-profile");
+    res.render("my-profile", { title: "Profile | DhulDoon" });
   } catch (e) {
     console.log(e);
   }
@@ -252,7 +256,7 @@ exports.profile = (req, res) => {
 
 exports.renderChangePassowrd = (req, res) => {
   try {
-    res.render("change-password");
+    res.render("change-password", { title: "Change Password | DhulDoon" });
   } catch (e) {
     console.log(e);
   }
@@ -271,14 +275,58 @@ exports.dashboard = async (req, res) => {
   res.render("dashboard", stats);
 };
 
+exports.bidPage = async (req, res) => {
+  try {
+    const bid = await Bid.find({ user_id: req.user.id })
+      .populate("property user_id")
+      .sort("-bidDate");
+
+    res.render("bid", { bid });
+  } catch (e) {
+    console.log(e);
+  }
+};
 exports.bid = async (req, res) => {
   try {
-    const bid = await Bid.create({
-      amount: req.body.amount,
+    // const property = await Properties.findOne({ slug: req.params.slug });
+    // await Bid.create({
+    //   amount: req.body.amount,
+    //   user_id: req.user.id,
+    //   property: property.id,
+    // });
+    const anotherTest = await Bid.find({
       user_id: req.user.id,
-      property: req.params.slug,
+      property: req.params.id,
     });
-    console.log(bid);
+
+    if (anotherTest[0] === undefined) {
+      await Bid.create({
+        amount: req.body.amount,
+        user_id: req.user.id,
+        property: req.params.id,
+      });
+      req.flash("success", "Bid sucessfully submitted");
+      res.redirect("/bid");
+    } else {
+      req.flash("danger", "You have already placed a bid for this property");
+      res.redirect("/bid");
+    }
+
+    // const test = await Bid.find({ user_id: req.user.id }).populate(
+    //   "property user_id"
+    // );
+
+    // console.log("saved this bid");
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+exports.bidDelete = async (req, res) => {
+  try {
+    await Bid.findByIdAndDelete(req.params.id);
+    req.flash("success", "You have succesfully deleted property bid");
+    res.redirect("/bid");
   } catch (e) {
     console.log(e);
   }

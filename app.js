@@ -40,8 +40,6 @@ app.use(function (req, res, next) {
   if (req.user) {
     res.locals.logged = true;
     res.locals.user = req.user;
-
-    console.log("logged in!");
   } else {
     // res.locals.logged = true;
     // res.locals.user = {
@@ -53,7 +51,6 @@ app.use(function (req, res, next) {
     // };
 
     res.locals.logged = false;
-    console.log("not logged in!");
   }
   next();
 });

@@ -3,9 +3,7 @@ const bcrypt = require("bcrypt");
 const passport = require("passport");
 exports.login = async (req, res) => {
   try {
-    req.flash("success", "You are logged out");
-
-    res.render("login");
+    res.render("login", { title: "Log In | DhulDoon" });
   } catch (err) {
     res.status(401).json({
       status: "error",
@@ -31,7 +29,7 @@ exports.loginUser = async (req, res) => {
 
 exports.signup = async (req, res) => {
   try {
-    res.render("signup");
+    res.render("signup", { title: "Sign Up | DhulDoon" });
   } catch (e) {
     console.log(e);
   }
@@ -59,8 +57,6 @@ exports.logout = (req, res) => {
 };
 
 exports.checkNotAuthenticated = (req, res, next) => {
-  console.log("okay lets see");
-  console.log(req.isAuthenticated());
   if (req.isAuthenticated()) {
     //if logged in
     return res.redirect("/");
@@ -69,8 +65,6 @@ exports.checkNotAuthenticated = (req, res, next) => {
 };
 
 exports.checkAuthenticated = (req, res, next) => {
-  console.log("okay lets see");
-  console.log(req.isAuthenticated());
   if (!req.isAuthenticated()) {
     //if logged in
     req.flash("danger", "Please login to access this page");
@@ -81,7 +75,7 @@ exports.checkAuthenticated = (req, res, next) => {
 
 exports.restrictTo = (...roles) => {
   return (req, res, next) => {
-    // roles ['admin', 'lead-guide']. role='user'
+    // roles = ["admin", "user"];
     if (!roles.includes(req.user.role)) {
       return next(
         new Error("You do not have permission to perform this action", 403)

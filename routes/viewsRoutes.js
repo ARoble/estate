@@ -7,14 +7,14 @@ const authControllers = require("./../controllers/authControllers");
 router.route("/").get(viewsControllers.getProperty);
 
 router.route("/about").get((req, res) => {
-  res.render("about");
+  res.render("about", { title: "About | DhulDoon" });
 });
 
 router
   .route("/property/add")
   .get(
-    authControllers.checkNotAuthenticated,
-    authControllers.restrictTo("admin"),
+    authControllers.checkAuthenticated,
+    authControllers.restrictTo("admin", "user"),
     viewsControllers.createPropertyForm
   )
   .post(viewsControllers.uploadImage, viewsControllers.createProperty);
@@ -23,7 +23,7 @@ router
   .route("/property/edit/:slug")
   .get(
     authControllers.checkAuthenticated,
-    authControllers.restrictTo("admin"),
+    authControllers.restrictTo("admin", "user"),
     viewsControllers.editProperty
   )
   .post(viewsControllers.editTheProperty);
@@ -32,7 +32,7 @@ router
   .route("/property/edit/images/:slug")
   .get(
     authControllers.checkAuthenticated,
-    authControllers.restrictTo("admin"),
+    authControllers.restrictTo("admin", "user"),
     viewsControllers.propertyImages
   )
   .post(viewsControllers.uploadImage, viewsControllers.editPropertyImages);
@@ -43,7 +43,7 @@ router
   .route("/properties")
   .get(
     authControllers.checkAuthenticated,
-    authControllers.restrictTo("admin"),
+    authControllers.restrictTo("admin", "user"),
     viewsControllers.getMyProperties
   );
 
@@ -59,7 +59,11 @@ router.route("/profile/edit/:id").post(viewsControllers.editProfile);
 //   .route("/dashboard")
 //   .get(authControllers.restrictTo("admin"), viewsControllers.dashboard);
 
-router.route("/bid/:slug").post(viewsControllers.bid);
+// router.route("/bid").get(viewsControllers.bidPage);
+
+// router.route("/bid/:id").post(viewsControllers.bid);
+
+// router.route("/bid/delete/:id").get(viewsControllers.bidDelete);
 
 router
   .route("/password/change")

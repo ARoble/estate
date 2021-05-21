@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <!-- Mirrored from themezhub.net/resido-live/resido/bookmark-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 13 Mar 2021 15:38:30 GMT -->
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+
+    <title>Resido - Residence & Real Estate HTML Template</title>
+
+    <!-- Custom CSS -->
+    <link href="/public/css/styles.css" rel="stylesheet" />
+
+    <!-- Custom Color Option -->
+    <link href="/public/css/colors.css" rel="stylesheet" />
+  </head>
+
+  <body class="blue-skin dashboard">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div id="preloader">
+      <div class="preloader"><span></span><span></span></div>
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+      <!-- ============================================================== -->
+      <!-- Top header  -->
+      <!-- ============================================================== -->
+      <!-- Start Navigation -->
+      <%- include('partials/header') %>
+      <!-- End Navigation -->
+      <div class="clearfix"></div>
+      <!-- ============================================================== -->
+      <!-- Top header  -->
+      <!-- ============================================================== -->
+
+      <!-- ============================ Page Title Start================================== -->
+      <div class="page-title">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <h2 class="ipt-title">Welcome!</h2>
+              <span class="ipn-subtitle">Welcome To Your Account</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ============================ Page Title End ================================== -->
+
+      <!-- ============================ User Dashboard ================================== -->
+      <section class="bg-light">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <div class="filter_search_opt">
+                <a href="javascript:void(0);" onclick="openFilterSearch()"
+                  >Dashboard Navigation<i class="ml-2 ti-menu"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <%- include('partials/dashboard') %>
+
+            <div class="col-lg-9 col-md-12">
+              <div class="dashboard-wraper">
+                <!-- Bookmark Property -->
+                <div class="form-submit">
+                  <h4>Property Bids</h4>
+                </div>
+                <%- include('partials/messages') %>
+                <table class="property-table-wrap responsive-table bkmark">
+                  <tbody>
+                    <!-- Item #1 -->
+                    <% if(bid.length === 0){ %>
+                    <p style="text-align: center; padding-top: 15px">
+                      You haven't submitted a bid for a property yet.
+                      <a href="/list">Check out some properties</a>
+                    </p>
+                    <% } %> <% for (var i = 0; i < bid.length; i++){ %>
+                    <tr>
+                      <td class="property-container">
+                        <img src="/<%=bid[i].property.imageCover%>" alt="" />
+                        <div class="title">
+                          <h4>
+                            <a href="property/<%=bid[i].property.slug%>"
+                              ><%=bid[i].property.title%></a
+                            >
+                          </h4>
+                          <span
+                            ><%=bid[i].property.address%>,
+                            <%=bid[i].property.neighbourhood%>
+                          </span>
+                          <span><%=bid[i].property.city%></span>
+                          <span class="table-property-price"
+                            >Bid: $<%=bid[i].amount%></span
+                          >
+                        </div>
+                      </td>
+                      <td class="action">
+                        <a
+                          href="bid/delete/<%= bid[i].id %>"
+                          onclick="return confirm('Are you sure you want to delete this bid?');"
+                          class="delete"
+                          ><i class="ti-close"></i> Delete</a
+                        >
+                      </td>
+                    </tr>
+                    <% }%>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ============================ User Dashboard End ================================== -->
+
+      <!-- ============================ Footer Start ================================== -->
+      <%- include('partials/footer') %>
+      <!-- End Modal -->
+
+      <a id="back2Top" class="top-scroll" title="Back to top" href="#"
+        ><i class="ti-arrow-up"></i
+      ></a>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="/public/js/jquery.min.js"></script>
+    <script src="/public/js/popper.min.js"></script>
+    <script src="/public/js/bootstrap.min.js"></script>
+    <script src="/public/js/rangeslider.js"></script>
+    <script src="/public/js/select2.min.js"></script>
+    <script src="/public/js/jquery.magnific-popup.min.js"></script>
+    <script src="/public/js/slick.js"></script>
+    <script src="/public/js/slider-bg.js"></script>
+    <script src="/public/js/lightbox.js"></script>
+    <script src="/public/js/imagesloaded.js"></script>
+
+    <script src="/public/js/custom.js"></script>
+    <!-- ============================================================== -->
+    <!-- This page plugins -->
+    <!-- ============================================================== -->
+
+    <script>
+      function openFilterSearch() {
+        document.getElementById("filter_search").style.display = "block";
+      }
+      function closeFilterSearch() {
+        document.getElementById("filter_search").style.display = "none";
+      }
+    </script>
+  </body>
+
+  <!-- Mirrored from themezhub.net/resido-live/resido/bookmark-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 13 Mar 2021 15:38:30 GMT -->
+</html>
