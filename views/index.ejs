@@ -98,26 +98,18 @@
 		
 			<section class="pt-5">
 				<div class="container">
-				
-					<div class="row justify-content-center">
-						<div class="col-lg-7 col-md-10 text-center">
-							<div class="sec-heading center mb-4">
-								<h2>Recent Property For Rent</h2>
-								</div>
-						</div>
-					</div>
-					
 					<div class="row">
-						<div class="col-lg-12 col-md-12">
+						<div class="col-lg-12 col-md-12 pt-1 pb-5">
+							<center class="pb-1"><h5>If you need a home, office space or land<br/> we are here for you!</h5></center>
 							<div class="property-slide">
-
+						
 								<div class="single-items">
 									<div class="property-listing shadow-none property-2 border">
 								
 										<div class="listing-img-wrapper">
 											<div class="list-img-slide">
 												<div class="click">
-													<div><a href="property/"><img src="/" class="img-fluid mx-auto" alt="" /></a></div>
+													<div><img src="public/img/buy.svg" class="img-fluid mx-auto" alt="" /></div>
 														</div>
 											</div>
 										</div>
@@ -125,44 +117,91 @@
 
 										<div class="listing-detail-wrapper">
 											<div class="listing-short-detail-wrap">
-												<div class="listing-short-detail">
-													<span class="property-type">For dsad</span>
-													<h4 class="listing-name verified"><a href="property/" class="prt-link-detail">dsadas</a></h4>
+												<div class="listing-short-detail center">
+													<h4 class="listing-name verified"><a href="property/" class="prt-link-detail">Buy & Rent Home</a></h4>
+													<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit eum, porro harum maiores cum ipsa.</p>
+													<a href="/list?sort=&status=&city=&propertyType=House"><button class="btn-index">Search Homes</button></a>
 												</div>
-												<div class="listing-short-detail-flex">
-													<h6 class="listing-card-info-price">$1231/<small>month</small></h6>
-												</div>
+											
 											</div>
 										</div>
 										
-										<div class="price-features-wrapper">
-											<div class="list-fx-features">
-												
-												<div class="listing-card-info-icon">
-													<div class="inc-fleat-icon"><img src="public/img/bed.svg" width="13" alt="" /></div>dsada Beds
+							
+										
+									</div>
+								</div>
+								<div class="single-items">
+									<div class="property-listing shadow-none property-2 border">
+								
+										<div class="listing-img-wrapper">
+											<div class="list-img-slide">
+												<div class="click">
+													<div><img src="public/img/office.svg" class="img-fluid mx-auto" alt="" /></div>
+														</div>
+											</div>
+										</div>
+										<style>.prt-link-detail::before{display:none}</style>
+
+										<div class="listing-detail-wrapper">
+											<div class="listing-short-detail-wrap">
+												<div class="listing-short-detail center">
+													<h4 class="listing-name verified"><a href="property/" class="prt-link-detail">Rent an office space</a></h4>
+													<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit eum, porro harum maiores cum ipsa.</p>
+													<a href="/list?sort=&status=&city=&propertyType=Office"><button class="btn-index">Find Office</button></a>
 												</div>
-												<div class="listing-card-info-icon">
-													<div class="inc-fleat-icon"><img src="public/img/bathtub.svg" width="13" alt="" /></div>sada Bath
-												</div>
-												
-												<div class="listing-card-info-icon">
-													<div class="inc-fleat-icon"><img src="public/img/move.svg" width="13" alt="" /></div>dsada
-												</div>
+											
 											</div>
 										</div>
 										
-										<div class="listing-detail-footer">
-											<div class="footer-first">
-												<div class="foot-location"><img src="public/img/pin.svg" width="18" alt="" />asdasd</div>
-											</div>
-											<div class="footer-flex">
-												<a href="property/" class="prt-view">View</a>
+							
+										
+									</div>
+								</div>
+								<div class="single-items">
+									<div class="property-listing shadow-none property-2 border">
+								
+										<div class="listing-img-wrapper">
+											<div class="list-img-slide">
+												<div class="click">
+													<div><img src="public/img/land.svg" class="img-fluid mx-auto" alt="" /></div>
+														</div>
 											</div>
 										</div>
+										<style>.prt-link-detail::before{display:none}</style>
+
+										<div class="listing-detail-wrapper">
+											<div class="listing-short-detail-wrap">
+												<div class="listing-short-detail center">
+													<h4 class="listing-name verified"><a href="property/" class="prt-link-detail">Buy Land</a></h4>
+													<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit eum, porro harum maiores cum ipsa.</p>
+													<a href="/list?sort=&status=sale&city=&propertyType=Land"><button class="btn-index">Find Land</button></a>
+												</div>
+											
+											</div>
+										</div>
+										
+							
 										
 									</div>
 								</div>
 
+
+</div>
+							</div>
+</div>					
+					<div class="row justify-content-center">
+						<div class="col-lg-7 col-md-10 text-center">
+							<div class="sec-heading center mb-4">
+								<h2>Recent Property For Rent</h2>
+								</div>
+						</div>
+					</div>
+				
+					<div class="row">
+						<div class="col-lg-12 col-md-12">
+							<div class="property-slide">
+
+							
 								<% for(var i=0; i < properties.length; i++) { %>
 									
 							<% if(properties[i].status === 'rent'){ %>
@@ -318,7 +357,22 @@
 				</div>		
 			</section>
 			<!-- ============================ All Featured Property ================================== -->
-			
+			<style>
+				.btn-index{
+					padding:10px 20px;
+					border:1px solid blue;
+					border-radius: 5px;
+					color:blue;
+					background-color: white;
+				}
+				.btn-index:hover{
+					background-color: blue;
+					color:white
+				}
+				.center{
+					text-align: center;
+				}
+			</style>
 		
 			<!-- ========================== Download App Section =============================== -->						
 			
