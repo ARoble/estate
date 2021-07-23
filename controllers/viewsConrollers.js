@@ -98,6 +98,27 @@ exports.singleProperty = async (req, res, next) => {
   }
 };
 
+exports.singleProperty2 = async (req, res, next) => {
+  try {
+    const property = await Properties.findOne({ slug: req.params.slug });
+    if (!property) {
+      return next(
+        new Error("Ooops sorry can't find the property your are looking for.")
+      );
+    }
+    const latest = await Properties.find({ slug: { $ne: property.slug } })
+      .sort("-dateListed")
+      .limit(3);
+    res.render("single-property-2", {
+      property,
+      latest,
+      title: `${property.title} | DhulDoon`,
+    });
+  } catch (err) {
+    console.log(err.message);
+  }
+};
+
 exports.listProperties = async (req, res) => {
   try {
     const features = new APIFeatures(Properties.find(), req.query)
@@ -352,6 +373,14 @@ exports.changePassword = async (req, res) => {
     user.save();
     console.log("passwords are changed habibi");
     res.redirect("/password/change");
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+exports.contact = (req, res) => {
+  try {
+    res.render("contact", { title: "Contact Us | DhulDoon" });
   } catch (error) {
     console.log(error);
   }

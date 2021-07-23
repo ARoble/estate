@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+
+    <title><%= title %></title>
+
+    <!-- Custom CSS -->
+    <link href="/public/css/styles.css" rel="stylesheet" />
+
+    <!-- Custom Color Option -->
+    <link href="/public/css/colors.css" rel="stylesheet" />
+  </head>
+
+  <body class="blue-skin">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div id="preloader">
+      <div class="preloader"><span></span><span></span></div>
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+      <!-- ============================================================== -->
+      <!-- Top header  -->
+      <!-- ============================================================== -->
+      <!-- Start Navigation -->
+      <%- include('partials/header') %>
+      <!-- End Navigation -->
+      <div class="clearfix"></div>
+      <!-- ============================================================== -->
+      <!-- Top header  -->
+      <!-- ============================================================== -->
+
+      <!-- ============================ Page Title Start================================== -->
+      <div class="page-title">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <h2 class="ipt-title">Contact Us</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ============================ Page Title End ================================== -->
+
+      <!-- ============================ Agency List Start ================================== -->
+      <section>
+        <div class="container">
+          <!-- row Start -->
+          <div class="row">
+            <!-- <div class="col-lg-7 col-md-7">
+              <div class="row">
+                <div class="col-lg-6 col-md-6">
+                  <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" class="form-control simple" />
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                  <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" class="form-control simple" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Subject</label>
+                <input type="text" class="form-control simple" />
+              </div>
+
+              <div class="form-group">
+                <label>Message</label>
+                <textarea class="form-control simple"></textarea>
+              </div>
+
+              <div class="form-group">
+                <button class="btn btn-theme-light-2 rounded" type="submit">
+                  Submit Request
+                </button>
+              </div>
+            </div> -->
+            <style>
+              .flex {
+                display: flex;
+                justify-content: space-between;
+              }
+              .flex-block {
+                padding-top: 10px;
+              }
+            </style>
+            <div class="col-lg-5 col-md-5">
+              <div class="contact-info">
+                <h2>Get In Touch</h2>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+                <div class="flex flex-block">
+                  <div class="flex">
+                    <div class="cn-info-icon">
+                      <i class="ti-home"></i>
+                    </div>
+                    <div class="cn-info-content">
+                      <h4 class="cn-info-title">Reach Us</h4>
+                      Xero Awr,<br />Hargeisa,<br />Somaliland
+                    </div>
+                  </div>
+
+                  <div class="flex">
+                    <div class="cn-info-icon">
+                      <i class="ti-email"></i>
+                    </div>
+                    <div class="cn-info-content">
+                      <h4 class="cn-info-title">Drop A Mail</h4>
+                      info@dhuldoon.com<br />contact@dhuldoon.com
+                    </div>
+                  </div>
+                </div>
+                <div class="flex flex-block">
+                  <div class="flex">
+                    <div class="cn-info-icon">
+                      <i class="ti-mobile"></i>
+                    </div>
+                    <div class="cn-info-content">
+                      <h4 class="cn-info-title">Call Us</h4>
+                      (252) 63 300 0000<br />
+                      (252) 63 300 0001
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /row -->
+        </div>
+      </section>
+      <!-- ============================ Agency List End ================================== -->
+      <%- include('partials/footer') %>
+      <!-- ============================ Footer End ================================== -->
+      <a id="back2Top" class="top-scroll" title="Back to top" href="#"
+        ><i class="ti-arrow-up"></i
+      ></a>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="/public/js/jquery.min.js"></script>
+    <script src="/public/js/popper.min.js"></script>
+    <script src="/public/js/bootstrap.min.js"></script>
+    <script src="/public/js/rangeslider.js"></script>
+    <script src="/public/js/select2.min.js"></script>
+    <script src="/public/js/jquery.magnific-popup.min.js"></script>
+    <script src="/public/js/slick.js"></script>
+    <script src="/public/js/slider-bg.js"></script>
+    <script src="/public/js/lightbox.js"></script>
+    <script src="/public/js/imagesloaded.js"></script>
+
+    <script src="/public/js/custom.js"></script>
+    <!-- ============================================================== -->
+    <!-- This page plugins -->
+    <!-- ============================================================== -->
+  </body>
+</html>

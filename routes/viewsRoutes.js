@@ -38,6 +38,7 @@ router
   .post(viewsControllers.uploadImage, viewsControllers.editPropertyImages);
 
 router.route("/property/:slug").get(viewsControllers.singleProperty);
+router.route("/property2/:slug").get(viewsControllers.singleProperty2);
 
 router
   .route("/properties")
@@ -54,6 +55,7 @@ router
   .get(authControllers.checkAuthenticated, viewsControllers.profile);
 
 router.route("/profile/edit/:id").post(viewsControllers.editProfile);
+router.route("/contact").get(viewsControllers.contact);
 
 // router
 //   .route("/dashboard")
